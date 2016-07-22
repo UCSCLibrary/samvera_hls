@@ -1,0 +1,10 @@
+require 'hydra/derivatives'
+module HydraHls
+  class HlsOutputFileService < CurationConcerns::PersistDerivatives
+    def self.call( directives,temp_dir)
+      hls_dir =  directives[:path]
+      FileUtils.mkdir_p(hls_dir)
+      FileUtils.move(Dir.glob(temp_dir+"/*") , hls_dir)
+    end  
+  end
+end
