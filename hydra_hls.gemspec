@@ -7,7 +7,7 @@ require "engine_cart/rake_task"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "hydra_hls"
-  s.version     = "0.0.1"
+  s.version     = HydraHls::VERSION
   s.authors     = ["Ned Henry, UCSC Library Digital Initiatives"]
   s.email       = ["ethenry@ucsc.edu"]
   s.homepage    = "http://github.com/UCSCLibrary/hydra_hls"

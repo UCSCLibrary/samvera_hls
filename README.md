@@ -18,6 +18,7 @@ then run the following from your rails app root directory:
 ```
 bundle install
 rails generate hydra_hls:install
+```
 
 ## Update apache config
 These instructions assume that you have an apache server running. This apache server can be (but does not need to be) serving your rails app via passenger.
