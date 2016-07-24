@@ -1,0 +1,23 @@
+#!/bin/bash
+
+while read uri; do
+
+  saveIFS=$IFS
+  IFS='/'
+  parm=($uri)
+  expires=${parm[-3]}
+  token=${parm[-2]}
+  IFS=$saveIFS
+
+  now=`date +%s`
+
+  token_secret=`env hls_token_secret`
+
+  hash=`echo -n "${uri::-9}${token_secret}" | sed "s/\/$token//" | openssl dgst -sha256 | cut -d " " -f 2`
+
+  if [ $hash == $token ] && [ $expires -gt $now ]; then
+    echo $uri | sed "s/\/$expires//" | sed "s/\/$token//"
+  else
+    echo "/forbidden.html"
+  fi
+done

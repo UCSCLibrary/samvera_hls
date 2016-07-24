@@ -35,7 +35,7 @@ module HydraHls
         }
     end
 
-    def hls_segment_playlist root_url, format="master"
+    def hls_segment_playlist root_url, format
       playlist = ""
       File.open(segment_playlist_path(format),'r') {|file|
         file.each_line do |line|
@@ -92,7 +92,7 @@ module HydraHls
     end
 
     def token line
-      @token ||=  Digest::SHA256.hexdigest("/" + File.join(hls_segment_url,timestamp.to_s,line).strip[0...-9] + Rails.application.secrets.secret_key_base)
+      @token ||=  Digest::SHA256.hexdigest("/" + File.join(segment_url_base,timestamp.to_s,line).strip[0...-9] + hls_config['token_secret'])
     end
 
     def timestamp
@@ -117,7 +117,7 @@ module HydraHls
     end
 
     def derivative_dir
-      File.split(derivative_path(self,"dummy"))[0]
+      File.split(derivative_path("dummy"))[0]
     end
 
     def derivative_path destination_name
