@@ -1,6 +1,6 @@
 require 'rails/generators'
-class Qa::InstallGenerator < Rails::Generators::Base
-  source_root File.expand_path('./templates', __FILE__)
+class HydraHls::InstallGenerator < Rails::Generators::Base
+  source_root File.expand_path('../templates', __FILE__)
 
   def inject_routes
     insert_into_file "config/routes.rb", :after => ".draw do" do
@@ -16,7 +16,7 @@ class Qa::InstallGenerator < Rails::Generators::Base
   end
 
   def copy_transcoding_config
-    copy_file "config/transcoding.yml.example", "config/transcoding.yml"
+    copy_file "config/hls.yml.example", "config/hls.yml"
   end
 
   def copy_file_sets_controller

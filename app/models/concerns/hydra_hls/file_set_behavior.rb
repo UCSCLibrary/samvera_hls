@@ -100,7 +100,7 @@ module HydraHls
     end
 
     def hls_config
-      @hls_config ||= YAML.load_file(Rails.root.join('config','transcoding.yml'))
+      @hls_config ||= YAML.load_file(Rails.root.join('config','hls.yml'))
     end
 
     def segment_playlist_path format

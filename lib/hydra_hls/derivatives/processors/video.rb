@@ -22,7 +22,7 @@ module HydraHls::Derivatives::Processors
     private
 
     def get_hls_options(format)
-      config = YAML.load_file(Rails.root.join('config','transcoding.yml'))["video"]
+      config = YAML.load_file(Rails.root.join('config','hls.yml'))["video"]
       config["default"].merge(config[format])
     end
     

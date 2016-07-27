@@ -22,7 +22,7 @@ module HydraHls::Derivatives::Processors
     private
 
     def get_hls_options(format)
-      config = YAML.load_file(Rails.root.join('config','transcoding.yml'))["audio"]
+      config = YAML.load_file(Rails.root.join('config','hls.yml'))["audio"]
       config["default"].merge(config[format])
     end
 
