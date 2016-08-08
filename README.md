@@ -52,4 +52,4 @@ When you ingest new audio or visual files, hls derivatives ought to be created a
 
 ## License
 
-[https://opensource.org/licenses/MIT](MIT license)
+[www.apache.org/licenses/LICENSE-2.0](Apache License, v2.0)
