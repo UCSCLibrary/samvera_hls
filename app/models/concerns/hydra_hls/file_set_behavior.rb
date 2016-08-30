@@ -5,8 +5,10 @@ module HydraHls
     def create_derivatives(filename)
       case mime_type
       when *self.class.audio_mime_types
+        hls_dir = File.join(derivative_dir,"hls")
         create_audio_derivates filename, hls_dir
       when *self.class.video_mime_types
+        hls_dir = File.join(derivative_dir,"hls")
         create_video_derivates filename, hls_dir
       else
         super
@@ -71,7 +73,6 @@ module HydraHls
     end
 
     def create_audio_derivates filename, hls_dir
-      hls_dir = File.join(derivative_dir,"hls")
       outputs = [
         { label: 'mp3', format: 'mp3', url: derivative_url('mp3') },
         { label: 'ogg', format: 'ogg', url: derivative_url('ogg') },
@@ -81,7 +82,6 @@ module HydraHls
     end
 
     def create_video_derivates filename, hls_dir
-      hls_dir = File.join(derivative_dir,"hls")
       outputs = [{ label: :thumbnail, format: 'jpg', url: derivative_url('thumbnail') },
                  { label: 'webm', format: 'webm', url: derivative_url('webm') },
                  { label: 'mp4', format: 'mp4', url: derivative_url('mp4') },
