@@ -1,5 +1,4 @@
 ---
-token_secret: <%= ENV["hls_token_secret"] %>
 video:
      hls_high:
           bitrate: 6500000 

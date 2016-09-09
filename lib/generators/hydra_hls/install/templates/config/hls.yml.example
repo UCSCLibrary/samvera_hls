@@ -4,13 +4,11 @@ video:
           bitrate: 6500000 
           maxrate: 6800000 
           vf: "scale=1280:-2"
-          codec_code: "???"
           resolution: "1280x720"
      hls_med:
           bitrate: 3500000
           maxrate: 3600000 
           vf: "scale=960:-2"
-          codec_code: "???"
           resolution: "960x540"
      hls_low:
           r: 15 
@@ -21,7 +19,7 @@ video:
           g: 45 
           segment_list_type: m3u8 
           vf: "scale=480:-2"
-          codec_code: "???"
+          codec_code: "mp4a.40.2,avc1.42001e"
           resolution: "480x360"
      default:
           r: 29.97 
@@ -30,6 +28,7 @@ video:
           acodec: aac
           profile_v: main 
           level: 3.1 
+          codec_code: "mp4a.40.2,avc1.4d001f"
           segment_time: 9
           g: 90
           vf: "scale=960:-2" 
@@ -46,6 +45,5 @@ audio:
           segment_time: 9
           segment_format: mpeg_ts 
           segment_list_type: m3u8 
-          codec_code: ???
+          codec_code: "mp4a.40.2"
           resolution: 300x50
-token_secret: <%= ENV["hls_token_secret"] %>

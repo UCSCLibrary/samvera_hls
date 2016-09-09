@@ -38,6 +38,7 @@ module HydraHls
           playlist << "RESOLUTION=#{options["resolution"]}\n"
           playlist << File.join(root_url,variant_url(format)) + "\n"
         }
+        playlist
     end
 
     def hls_segment_playlist root_url, format
@@ -95,11 +96,15 @@ module HydraHls
     end
 
     def token line
-      @token ||=  Digest::SHA256.hexdigest("/" + File.join(segment_url_base,timestamp.to_s,line).strip[0...-9] + hls_config['token_secret'])
+      @token ||=  Digest::SHA256.hexdigest("/" + File.join(segment_url_base,timestamp.to_s,line).strip[0...-9] + token_secret)
     end
 
     def timestamp
       @timestamp ||= Time.now.to_i + 7200
+    end
+
+    def token_secret
+      @token_secret ||= ENV['hls_token_secret']
     end
 
     def hls_config
