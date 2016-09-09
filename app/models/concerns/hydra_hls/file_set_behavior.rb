@@ -1,3 +1,6 @@
+require "hydra_hls/derivatives/video_derivatives"
+require "hydra_hls/derivatives/audio_derivatives"
+
 module HydraHls
   module FileSetBehavior
     extend ActiveSupport::Concern
@@ -78,7 +81,7 @@ module HydraHls
         { label: 'ogg', format: 'ogg', url: derivative_url('ogg') },
         { label: 'hls_hd', format: 'hls_hd',path: hls_dir}, 
         { label: 'hls', format: 'hls', path: hls_dir}]
-      HydraHls::Derivatives::AudioDerivatives.create(filename,outputs)
+      HydraHls::Derivatives::AudioDerivatives.create(filename,{:outputs => outputs})
     end
 
     def create_video_derivates filename, hls_dir
@@ -88,7 +91,7 @@ module HydraHls
                  { label: 'hls_high', format: "hls_high", path: hls_dir}, 
                  { label: 'hls_med', format: "hls_med", path: hls_dir}, 
                  { label: 'hls_low', format: "hls_low", path: hls_dir}]
-      HydraHls::Derivatives::VideoDerivatives.create(filename,outputs)
+      HydraHls::Derivatives::VideoDerivatives.create(filename,{:outputs => outputs})
     end
 
     def token line

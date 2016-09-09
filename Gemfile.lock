@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hydra_hls (0.0.3)
+    hydra_hls (0.0.5)
       rails (~> 4.2.6)
 
 GEM

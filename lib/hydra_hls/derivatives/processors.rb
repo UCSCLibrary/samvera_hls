@@ -1,5 +1,7 @@
-module HydraHls::Derivatives
-  module Processors
-    extend ActiveSupport::Autoload
+module HydraHls
+  module Derivatives
+    module Processors
+      extend ActiveSupport::Autoload
+    end
   end
 end

@@ -1,4 +1,4 @@
-class FileSetsController < CurationConcerns::FilesSetsController
+class FileSetsController < CurationConcerns::FileSetsController
   include HydraHls::FileSetsControllerBehavior  
 end
 
