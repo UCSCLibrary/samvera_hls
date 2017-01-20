@@ -59,6 +59,18 @@ module HydraHls
       playlist
     end
 
+
+    module ClassMethods
+
+      def audio_mime_types
+        # audio/x-wave is the mime type that fits 0.6.0 returns for a wav file.
+        # audio/mpeg is the mime type that fits 0.6.0 returns for an mp3 file.
+        ['audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/x-wave', 'audio/x-wav', 'audio/ogg', 'audio/flac','audio/x-flac', 'audio/x-aiff', 'audio/aiff', ]
+      end
+    end
+
+
+
     private
 
     def segment_url_base
