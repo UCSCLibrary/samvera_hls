@@ -1,0 +1,13 @@
+.mejs-container {
+    min-height: 30px;
+    height:auto !important;
+    
+    .mejs-playlist  {
+        position: relative !important;
+    }
+    
+    .mejs-controls {
+        bottom:auto;
+        top:0;
+    }
+}
