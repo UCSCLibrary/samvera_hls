@@ -2,8 +2,11 @@
     min-height: 30px;
     height:auto !important;
     
-    .mejs-playlist  {
+    .mejs-layers { padding-top:2em; }
+
+    .mejs-playlist.mejs-layer  {
         position: relative !important;
+        ul.mejs { margin-top:0px; !important}
     }
     
     .mejs-controls {
