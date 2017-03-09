@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    if(isPlaylist) {
+    if(typeof isPlaylist !== 'undefined' && isPlaylist) {
         $(".hls-media").mediaelementplayer({
             audioWidth: '100%',
             loop: true,
