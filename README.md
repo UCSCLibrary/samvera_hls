@@ -46,6 +46,13 @@ Add the following lines, inserting a random secret key of your own and inserting
 then restart your server
 ```sudo systemctl restart httpd```
 
+### Create link to derivative folder
+It is probably possible to create this link automatically, but I have not set that up yet. You need to create this symbolic link manually. The rewrite rule you created in the last step keeps this path from being accessible publicly. Note that the apache directive FollowSymLinks must be set for this to work properly.
+```
+sudo su - hydrauser
+ln -s /mnt/MY/DERIVATIVE/PATH /srv/MY/WEB/APP/public/stream
+logout
+
 ## Usage
 
 When you ingest new audio or visual files, hls derivatives ought to be created automatically along with the other derivative files. View partials are included for displaying these. And "Embed" action is created for file sets, allowing an endpoint for embedding these in other websites using iframes.
