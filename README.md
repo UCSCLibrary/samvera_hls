@@ -52,6 +52,7 @@ It is probably possible to create this link automatically, but I have not set th
 sudo su - hydrauser
 ln -s /mnt/MY/DERIVATIVE/PATH /srv/MY/WEB/APP/public/stream
 logout
+```
 
 ## Usage
 
