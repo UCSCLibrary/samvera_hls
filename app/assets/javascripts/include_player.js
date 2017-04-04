@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into embed.js, which will include all the files
+// This is a manifest file that'll be compiled into include_player.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require mediaelement-and-player
 //= require mep-feature-playlist
 //= require hls_initialize

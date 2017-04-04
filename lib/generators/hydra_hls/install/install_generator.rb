@@ -8,6 +8,12 @@ class HydraHls::InstallGenerator < Rails::Generators::Base
     end
   end
 
+  def inject_compile_assets
+    insert_into_file "config/initializers/assets.rb", :before => /^end/ do
+      %{\nRails.application.config.assets.precompile += %w( include_player.js )\nRails.application.config.assets.precompile += %w( embed.js )\nRails.application.config.assets.precompile += %w( embed.css )\n}
+    end
+  end
+
   def inject_file_set_behavior
     insert_into_file "app/models/file_set.rb", 
                      :after => "Sufia::FileSetBehavior" do
