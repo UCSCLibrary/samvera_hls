@@ -2,7 +2,10 @@ module HydraHls
   module FileSetsControllerBehavior
     extend ActiveSupport::Concern
 
+#    skip_authorize_resource :only => [:show,:embed,:master,:variant]
+
     def embed
+      response.headers["X-FRAME-OPTIONS"] = "ALLOWALL"
       fs = FileSet.find(params[:id])
       @playlist_url = fs.hls_master_url
       @media_partial = media_display_partial(fs)
