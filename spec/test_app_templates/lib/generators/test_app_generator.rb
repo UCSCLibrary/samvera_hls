@@ -8,7 +8,7 @@
           # after setting up the application
 
           def install_engine
-            generate 'hydra_hls:install'
+            generate 'samvera_hls:install'
           end
         end
 

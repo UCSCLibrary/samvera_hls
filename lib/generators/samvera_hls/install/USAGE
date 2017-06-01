@@ -1,8 +1,8 @@
 Description:
-    Installs hydra_hls into your rails application.
+    Installs samvera_hls into your rails application.
       * adds the routes to playlist files
       * adds hls derivative file creation
       * installs new viewer for adaptive streaming display
 
 Example:
-    rails generate hydra_hls:install
+    rails generate samvera_hls:install
