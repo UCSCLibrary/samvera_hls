@@ -1,11 +1,11 @@
 
 ## Synopsis
 
-This gem allows a hydra application to create hls derivative media files automatically after uploading audiovisual media files, and to display those to a user through hls adaptive streaming.
+This gem allows a samvera application to create hls derivative media files automatically after uploading audiovisual media files, and to display those to a user through hls adaptive streaming.
 
 ## Motivation
 
-Hydra is a promising digital asset management solution with a growing feature set, and we wanted to use as a streaming media service for audiovisual collections. One Hydra based application - [Avalon Media System](https://github.com/avalonmediasystem) - is designed specifically to support multimedia streaming. However, Avalon is not nearly as flexible or fully developed as [Sufia](https://github.com/projecthydra/sufia) (another Hydra "head") as an asset management system, and its developer community is relatively small. Avalon also relies on a clunky party transcoding service (Matterhorn) and external streaming server (Red5 or Wowza), creating an unweildly and bug-pronesoftware stack. We wanted the streaming power and flexiblity promised by Avalon, in a more flexible and feature-rich asset management system like Sufia. This gem aims to integrate all of the benefits of adaptive bitrate streaming into Sufia's existing simple, efficient system for creating multimedia derivative files. 
+Samvera is a promising digital asset management solution with a growing feature set, and we wanted to use as a streaming media service for audiovisual collections. One Samvera based application - [Avalon Media System](https://github.com/avalonmediasystem) - is designed specifically to support multimedia streaming. However, Avalon is not nearly as flexible or fully developed as [Sufia](https://github.com/samvera/sufia) (another Samvera "head") as an asset management system, and its developer community is relatively small. Avalon also relies on a clunky party transcoding service (Matterhorn) and external streaming server (Red5 or Wowza), creating an unweildly and bug-pronesoftware stack. We wanted the streaming power and flexiblity promised by Avalon, in a more flexible and feature-rich asset management system like Sufia. This gem aims to integrate all of the benefits of adaptive bitrate streaming into Sufia's existing simple, efficient system for creating multimedia derivative files. 
 
 ## Security & tokens
 
@@ -24,13 +24,13 @@ An apache server is required. This may or may not be the same server that serves
 ###Install the gem
 Add the following to your gem file:
 
-```gem 'hydra_hls'```
+```gem 'samvera_hls'```
 
 then run the following from your rails app root directory:
 
 ```
 bundle install
-rails generate hydra_hls:install
+rails generate samvera_hls:install
 ```
 
 ### Update apache config
@@ -49,7 +49,7 @@ then restart your server
 ### Create link to derivative folder
 It is probably possible to create this link automatically, but I have not set that up yet. You need to create this symbolic link manually. The rewrite rule you created in the last step keeps this path from being accessible publicly. Note that the apache directive FollowSymLinks must be set for this to work properly.
 ```
-sudo su - hydrauser
+sudo su - samverauser
 ln -s /mnt/MY/DERIVATIVE/PATH /srv/MY/WEB/APP/public/stream
 logout
 ```
