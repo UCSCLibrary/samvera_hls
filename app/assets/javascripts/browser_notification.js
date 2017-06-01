@@ -1,7 +1,3 @@
-function isOldMacWithChrome() {
-    return true;
-}
-
 function isChrome(nAgt) {
   return nAgt.indexOf('Chrome') != -1
 }
@@ -17,8 +13,7 @@ function getMacVersion(nAgt) {
 
 function versionCompare(left, right) {
     if (typeof left + typeof right != 'stringstring')
-        return false;
-    
+        return false;    
     var a = left.split('.')
     ,   b = right.split('.')
     ,   i = 0, len = Math.max(a.length, b.length);
@@ -37,7 +32,7 @@ function versionCompare(left, right) {
 $(document).ready(function(){
   var nAgt = navigator.userAgent;
   if (isChrome(nAgt)) {
-    if(versionCompare("10.13",getMacVersion(nAgt)))
+    if(versionCompare("10.12",getMacVersion(nAgt)))
       alert('Warning: our streaming media sometimes has problems displaying on your operating system when using the Chrome browser. If you experience problems viewing content, try using another browser such as Safari or Firefox, or update your operating system to the latest version of OS X.');
   }
 });

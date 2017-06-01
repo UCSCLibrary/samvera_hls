@@ -1,8 +1,11 @@
+.mejs-container.hls-media.mejs-audio {
+   height:auto !important;
+}
+
 .mejs-container.hls-media {
     clear:both;
     min-height: 30px;
-    height:auto !important;
-    
+
     .mejs-layers { padding-top:2em; }
 
     .mejs-playlist.mejs-layer  {
