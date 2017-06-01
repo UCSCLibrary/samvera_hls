@@ -16,7 +16,7 @@ class HydraHls::InstallGenerator < Rails::Generators::Base
 
   def inject_file_set_behavior
     insert_into_file "app/models/file_set.rb", 
-                     :after => "Sufia::FileSetBehavior" do
+                     :after => "Hyrax::FileSetBehavior" do
       %{\n  include HydraHls::FileSetBehavior\n}
     end
   end

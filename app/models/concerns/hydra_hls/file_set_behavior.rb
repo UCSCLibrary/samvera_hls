@@ -129,7 +129,7 @@ module HydraHls
 
     def derivative_url(destination_name = nil)
       if destination_name.nil?
-        @deriv_url ||= derivative_dir.gsub(CurationConcerns.config.derivatives_path,"")
+        @deriv_url ||= derivative_dir.gsub(Hyrax.config.derivatives_path,"")
       else
         path = derivative_path(destination_name)
         URI("file://#{path}").to_s
@@ -141,7 +141,7 @@ module HydraHls
     end
 
     def derivative_path destination_name
-      CurationConcerns::DerivativePath.derivative_path_for_reference(self, destination_name)
+      Hyrax::DerivativePath.derivative_path_for_reference(self, destination_name)
     end
 
 
