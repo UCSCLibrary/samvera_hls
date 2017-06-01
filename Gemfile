@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Declare your gem's dependencies in hydra_hls.gemspec.
+# Declare your gem's dependencies in samvera_hls.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gem 'engine_cart'

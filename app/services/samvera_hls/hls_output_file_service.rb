@@ -1,5 +1,5 @@
-require 'hydra/derivatives'
-module HydraHls
+require 'samvera/derivatives'
+module SamveraHls
   class HlsOutputFileService < CurationConcerns::PersistDerivatives
     def self.call( directives,temp_dir)
       hls_dir =  directives[:path]
