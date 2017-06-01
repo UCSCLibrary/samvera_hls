@@ -1,6 +1,6 @@
 require 'samvera/derivatives'
 module SamveraHls
-  class HlsOutputFileService < CurationConcerns::PersistDerivatives
+  class HlsOutputFileService < Hyrax::PersistDerivatives
     def self.call( directives,temp_dir)
       hls_dir =  directives[:path]
       FileUtils.mkdir_p(hls_dir)

@@ -3,7 +3,7 @@ require "samvera_hls/derivatives/processors/media"
 module SamveraHls
   module Derivatives
     module Processors
-      class Audio < Hydra::Derivatives::Processors::Audio
+      class Audio < Samvera::Derivatives::Processors::Audio
         include Media
 
         def options_for(format)
@@ -12,8 +12,8 @@ module SamveraHls
           outopts = get_hls_options(format).symbolize_keys
           output_options = "-acodec #{outopts[:acodec]} -b:a #{outopts[:bitrate]} -maxrate: #{outopts[:maxrate]} -f segment -segment_time #{outopts[:segment_time]} -flags -global_header -segment_format mpeg_ts -segment_list_type m3u8"
 
-          { Hydra::Derivatives::Processors::Ffmpeg::OUTPUT_OPTIONS => output_options, 
-            Hydra::Derivatives::Processors::Ffmpeg::INPUT_OPTIONS => input_options,
+          { Samvera::Derivatives::Processors::Ffmpeg::OUTPUT_OPTIONS => output_options, 
+            Samvera::Derivatives::Processors::Ffmpeg::INPUT_OPTIONS => input_options,
             :format => format}
         end
 
