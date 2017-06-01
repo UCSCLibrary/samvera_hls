@@ -1,4 +1,4 @@
-module HydraHls
+module SamveraHls
   module FileSetsControllerBehavior
     extend ActiveSupport::Concern
 

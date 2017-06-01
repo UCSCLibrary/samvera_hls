@@ -1,10 +1,10 @@
 require 'rails/generators'
-class HydraHls::InstallGenerator < Rails::Generators::Base
+class SamveraHls::InstallGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
 
   def inject_routes
     insert_into_file "config/routes.rb", :after => ".draw do" do
-      %{\n  mount HydraHls::Engine => '/'\n}
+      %{\n  mount SamveraHls::Engine => '/'\n}
     end
   end
 
@@ -17,7 +17,7 @@ class HydraHls::InstallGenerator < Rails::Generators::Base
   def inject_file_set_behavior
     insert_into_file "app/models/file_set.rb", 
                      :after => "Sufia::FileSetBehavior" do
-      %{\n  include HydraHls::FileSetBehavior\n}
+      %{\n  include SamveraHls::FileSetBehavior\n}
     end
   end
 

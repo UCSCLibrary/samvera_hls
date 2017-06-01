@@ -1,4 +1,4 @@
-module HydraHls
+module SamveraHls
   module Derivatives
     module Processors
       module Media
@@ -18,7 +18,7 @@ module HydraHls
           return super(file_suffix,options) unless file_suffix.include?("hls")
           Dir::mktmpdir(['sufia', "_#{file_suffix}"], Hydra::Derivatives.temp_file_base){ |temp_dir|
             encode_hls(source_path, options, temp_dir.to_s)
-            HydraHls::HlsOutputFileService.call(directives, temp_dir)
+            SamveraHls::HlsOutputFileService.call(directives, temp_dir)
           }
         end
 

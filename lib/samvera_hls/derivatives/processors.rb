@@ -1,4 +1,4 @@
-module HydraHls
+module SamveraHls
   module Derivatives
     module Processors
       extend ActiveSupport::Autoload
