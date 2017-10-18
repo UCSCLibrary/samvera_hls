@@ -1,4 +1,4 @@
-require 'samvera/derivatives'
+require 'hydra/derivatives'
 module SamveraHls
   class HlsOutputFileService < Hyrax::PersistDerivatives
     def self.call( directives,temp_dir)
