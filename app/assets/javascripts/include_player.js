@@ -12,6 +12,5 @@
 //
 //= require browser_notification
 //= require mediaelement-and-player
-//= require mep-feature-playlist
-//= require hls_initialize
+
 

@@ -13,6 +13,6 @@
 //= require browser_notification
 //= require jquery
 //= require mediaelement-and-player
-//= require mep-feature-playlist
-//= require hls_initialize
+
+
 
