@@ -43,6 +43,7 @@ module SamveraHls
     end
 
     def hls_segment_playlist root_url, format
+      root_url = root_url.gsub("/?locale=en","")
       playlist = ""
       File.open(segment_playlist_path(format),'r') {|file|
         file.each_line do |line|
