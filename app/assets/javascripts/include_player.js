@@ -12,5 +12,6 @@
 //
 //= require browser_notification
 //= require mediaelement-and-player
-
+//= require playlist
+//= require playlist-i18n
 

@@ -23,6 +23,7 @@ module SamveraHls
     end
 
     def hls_master_playlist root_url
+      root_url = root_url.gsub("/?locale=en","")
         type = mime_type.split('/')[0]
         defaults = hls_config[type]["default"]
         playlist = "#EXTM3U\n"
