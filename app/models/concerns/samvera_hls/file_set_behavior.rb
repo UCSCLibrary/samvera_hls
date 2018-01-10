@@ -5,7 +5,7 @@ module SamveraHls
   module FileSetBehavior
     extend ActiveSupport::Concern
 
-    def create_derivatives(filename)
+    def create_hls_derivatives(filename)
       case mime_type
       when *self.class.audio_mime_types
         hls_dir = File.join(derivative_dir,"hls")
@@ -14,7 +14,7 @@ module SamveraHls
         hls_dir = File.join(derivative_dir,"hls")
         create_video_derivates filename, hls_dir
       else
-        super
+        return false
       end
     end
 
