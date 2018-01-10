@@ -2,7 +2,10 @@ module SamveraHls
   module FileSetsControllerBehavior
     extend ActiveSupport::Concern
 
-#    skip_authorize_resource :only => [:show,:embed,:master,:variant]
+    included do
+      skip_before_action :authenticate_user!, :only => [:show,:citation, :stats,  :embed, :master, :variant]
+      skip_authorize_resource :only => [:show,:citation, :stats,  :embed, :master, :variant]
+    end
 
     def embed
       response.headers["X-FRAME-OPTIONS"] = "ALLOWALL"
