@@ -13,7 +13,6 @@ module SamveraHls
           self.class.execute "#{Hydra::Derivatives.ffmpeg_path} #{inopts} -i \"#{input_path}\" #{outopts} #{output_files}"
         end
 
-
         def encode_file(file_suffix, options)
           return super(file_suffix,options) unless file_suffix.include?("hls")
           Dir::mktmpdir(['sufia', "_#{file_suffix}"], Hydra::Derivatives.temp_file_base){ |temp_dir|
