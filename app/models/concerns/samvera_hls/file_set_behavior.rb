@@ -61,6 +61,14 @@ module SamveraHls
       playlist
     end
 
+    def derivative_url(destination_name = nil)
+      if destination_name.nil?
+        @deriv_url ||= derivative_dir.gsub(Hyrax.config.derivatives_path,"")
+      else
+        path = derivative_path(destination_name)
+        URI("file://#{path}").to_s
+      end
+    end
 
     module ClassMethods
 
@@ -70,8 +78,6 @@ module SamveraHls
         ['audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/x-wave', 'audio/x-wav', 'audio/ogg', 'audio/flac','audio/x-flac', 'audio/x-aiff', 'audio/aiff', ]
       end
     end
-
-
 
     private
 
@@ -129,23 +135,17 @@ module SamveraHls
         File.join(derivative_dir,"hls",format+".m3u8")
     end
 
-    def derivative_url(destination_name = nil)
-      if destination_name.nil?
-        @deriv_url ||= derivative_dir.gsub(Hyrax.config.derivatives_path,"")
-      else
-        path = derivative_path(destination_name)
-        URI("file://#{path}").to_s
-      end
-    end
-
     def derivative_dir
       File.split(derivative_path("dummy"))[0]
     end
 
     def derivative_path destination_name
-      Hyrax::DerivativePath.derivative_path_for_reference(self, destination_name)
+      derivative_path_service.derivative_path_for_reference(self, destination_name)
     end
 
+    def derivative_path_service
+      Hyrax::DerivativePath
+    end
 
   end
 end
