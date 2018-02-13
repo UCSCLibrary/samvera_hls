@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+SamveraHls::Engine.routes.draw do
   
   get '/file_set/:id/hls.m3u8', to: 'file_sets#master'
   get '/file_set/:id/:format/variant.m3u8', to: 'file_sets#variant'
