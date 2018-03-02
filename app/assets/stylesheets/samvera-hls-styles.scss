@@ -1,7 +1,14 @@
-.hls_media {
+.mejs__container.hls_media, .mejs-container.hls_media { {
     margin-top: 15px;
-}
-
-.mejs__container.mejs__audio, .mejs-container.mejs-audio {
     min-height: auto !important;
 }
+
+.mejs__container.hls_media.playlist_shown, .mejs-container.hls_media.playlist_shown {
+    margin-top: 15px;
+    min-height: 220px !important;
+}
+
+.mejs__container.hls_media.playlist_hidden, .mejs-container.hls_media.playlist_hidden {
+    margin-top: 45px;
+}
+
