@@ -21,7 +21,7 @@ An apache server is required. This may or may not be the same server that serves
 
 ## Installation
 
-###Install the gem
+### Install the gem
 Add the following to your gem file:
 
 ```gem 'samvera_hls'```
