@@ -14,4 +14,5 @@
 //= require mediaelement-and-player
 //= require playlist
 //= require playlist-i18n
+//= require load-player
 
