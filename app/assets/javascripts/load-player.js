@@ -1,3 +1,4 @@
+$("video.hls_media#primary-media-player").mediaelementplayer({pluginPath: "/mejs/", showPlaylist: false, audioWidth: "100%"});
 $("audio.hls_media.single#primary-media-player").mediaelementplayer({pluginPath: "/mejs/", showPlaylist: false, audioWidth: "100%"});
 
 $("audio.hls_media.playlist#primary-media-player").mediaelementplayer({pluginPath: "/mejs/", 
