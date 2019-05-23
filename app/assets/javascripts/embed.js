@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require browser_notification
 //= require jquery
+//= require browser_notification
 //= require mediaelement-and-player
-
-
-
+//= require playlist
+//= require playlist-i18n
+//= require load-player
