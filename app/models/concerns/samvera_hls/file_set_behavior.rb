@@ -107,7 +107,7 @@ module SamveraHls
 
     def create_video_derivates filename, hls_dir
       outputs = [{ label: :thumbnail, format: 'jpg', url: derivative_url('thumbnail') },
-                 { label: 'webm', format: 'webm', url: derivative_url('webm') },
+#                 { label: 'webm', format: 'webm', url: derivative_url('webm') },
                  { label: 'mp4', format: 'mp4', url: derivative_url('mp4') },
                  { label: 'hls_high', format: "hls_high", path: hls_dir}, 
                  { label: 'hls_med', format: "hls_med", path: hls_dir}, 
