@@ -26,19 +26,19 @@ module SamveraHls
     end
 
     def media_display_partial(file_set)
-      'file_sets/media_display/' +
+      base = 'file_sets/media_display'
         if file_set.image?
-          'image'
+          File.join('hyrax',base,'image')
         elsif file_set.video?
-          'video_hls'
+          File.join(base,'video_hls')
         elsif file_set.audio?
-          'audio_hls'
+          File.join(base,'audio_hls')
         elsif file_set.pdf?
-          'pdf'
+          File.join('hyrax',base,'pdf')
         elsif file_set.office_document?
-          'office_document'
+          File.join('hyrax',base,'office_document')
         else
-          'default'
+          File.join('hyrax',base,'default')
         end
     end
 
