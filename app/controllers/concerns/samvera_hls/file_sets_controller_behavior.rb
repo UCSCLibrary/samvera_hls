@@ -26,7 +26,7 @@ module SamveraHls
     end
 
     def media_display_partial(file_set)
-      'hyrax/file_sets/media_display/' +
+      'file_sets/media_display/' +
         if file_set.image?
           'image'
         elsif file_set.video?
