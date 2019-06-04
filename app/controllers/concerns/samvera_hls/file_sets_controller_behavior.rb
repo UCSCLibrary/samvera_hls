@@ -9,23 +9,21 @@ module SamveraHls
 
     def embed
       response.headers["X-FRAME-OPTIONS"] = "ALLOWALL"
-      fs = FileSet.find(params[:id])
-      @playlist_url = fs.hls_master_url
-      @media_partial = media_display_partial(fs)
+      @playlist_url = File.join("file_set",params[:id],"hls.m3u8")
+      @media_partial = media_display_partial(params[:id])
       render layout: false
     end
     
     def master
-      fs = FileSet.find(params[:id])
-      render inline: fs.hls_master_playlist(root_url), content_type: 'application/x-mpegurl'
+      render inline: SamveraHls::HlsPlaylistGenerator.hls_master_playlist(params[:id],root_url), content_type: 'application/x-mpegurl'
     end
 
     def variant
-      fs = FileSet.find(params[:id])
-      render inline: fs.hls_segment_playlist(root_url,params[:format]), content_type: 'application/x-mpegurl'
+      render inline: SamveraHls::HlsPlaylistGenerator.hls_segment_playlist(params[:id],root_url,params[:format]), content_type: 'application/x-mpegurl'
     end
 
-    def media_display_partial(file_set)
+    def media_display_partial(file_set_id)
+      file_set = SolrDocument.find(file_set_id)
       base = 'file_sets/media_display'
         if file_set.image?
           File.join('hyrax',base,'image')
