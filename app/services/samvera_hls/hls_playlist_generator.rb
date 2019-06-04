@@ -59,7 +59,7 @@ module SamveraHls
       end
 
       def hls_dir file_set_id
-        Hyrax::DerivativePath.derivative_path_for_reference(file_set_id,"hls").gsub(/\.hls\z/,"")
+        derivative_path(file_set_id,"hls").gsub(/\.hls\z/,"")
       end
 
       def derivative_url file_set_id, destination_name 
@@ -73,7 +73,7 @@ module SamveraHls
       end
 
       def segment_url_base id
-        File.join("stream",derivative_url(id, "hls"))
+        File.join("stream",derivative_url(id, "hls")).gsub(/\.hls\z/,"")
       end
 
       def token id, line, timestamp
