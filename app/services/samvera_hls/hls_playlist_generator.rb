@@ -42,13 +42,19 @@ module SamveraHls
         timestamp = Time.now.to_i + 7200
 
         playlist = ""
+
         File.open(segment_playlist_path(file_set_id, format),'r') {|file|
+          
           file.each_line do |line|
             if line.include? ".ts" then
+              # We only need to set the token once for each variant file. 
+              # It doesn't depend on which segment we're playing, so we 
+              # speed things up by only calculating one.
+              variant_token ||= token(file_set_id,line, timestamp)
               playlist << File.join(root_url,
                                     segment_url_base(file_set_id),
                                     timestamp.to_s,
-                                    token(file_set_id,line, timestamp),
+                                    variant_token,
                                     line).strip+"\n"
             else
               playlist << line.strip+"\n"
@@ -77,7 +83,7 @@ module SamveraHls
       end
 
       def token id, line, timestamp
-        @token ||=  Digest::SHA256.hexdigest("/" + File.join(segment_url_base(id),timestamp.to_s,line).strip[0...-9] + token_secret)
+        Digest::SHA256.hexdigest("/" + File.join(segment_url_base(id),timestamp.to_s,line).strip[0...-9] + token_secret)
       end
 
       def segment_playlist_path id, format
