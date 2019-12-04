@@ -45,6 +45,7 @@ module SamveraHls
 
         File.open(segment_playlist_path(file_set_id, format),'r') {|file|
           
+          variant_token = false;
           file.each_line do |line|
             if line.include? ".ts" then
               # We only need to set the token once for each variant file. 
