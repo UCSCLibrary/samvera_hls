@@ -6,6 +6,14 @@ module SamveraHls
   module FileSetBehavior
     extend ActiveSupport::Concern
 
+    def self.audio_mime_types
+      ['audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/x-wave', 'audio/x-wav', 'audio/ogg', 'audio/flac','audio/x-flac', 'audio/x-aiff', 'audio/aiff', ]
+    end
+
+    def self.video_mime_types
+      ['audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/x-wave', 'audio/x-wav', 'audio/ogg', 'audio/flac','audio/x-flac', 'audio/x-aiff', 'audio/aiff', ]
+    end
+
     def create_hls_derivatives(filename)
       case mime_type
       when *audio_mime_types
@@ -20,10 +28,11 @@ module SamveraHls
     private
 
     def audio_mime_types
-      ['audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/x-wave', 'audio/x-wav', 'audio/ogg', 'audio/flac','audio/x-flac', 'audio/x-aiff', 'audio/aiff', ]
+      self.class.audio_mime_types
     end
+
     def video_mime_types
-      ['video/mp4', 'video/mpeg', 'video/ogg','video/webm','video.flv','video/mp1s','video/mp2p']
+      self.class.video_mime_types
     end
 
     def create_hls_audio_derivatives filename
