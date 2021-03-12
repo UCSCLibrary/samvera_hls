@@ -52,11 +52,17 @@ module SamveraHls
               # It doesn't depend on which segment we're playing, so we 
               # speed things up by only calculating one.
               variant_token ||= token(file_set_id,line, timestamp)
-              playlist << File.join(root_url,
-                                    segment_url_base(file_set_id),
-                                    timestamp.to_s,
-                                    variant_token,
-                                    line).strip+"\n"
+              if Rails.env == "development" || Rails.env == "test"
+                playlist << File.join(root_url,
+                                      segment_url_base(file_set_id),
+                                      line).strip+"\n"
+              else
+                playlist << File.join(root_url,
+                                      segment_url_base(file_set_id),
+                                      timestamp.to_s,
+                                      variant_token,
+                                      line).strip+"\n"
+              end
             else
               playlist << line.strip+"\n"
             end
