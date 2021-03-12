@@ -11,7 +11,7 @@ module SamveraHls
     end
 
     def self.video_mime_types
-      ['audio/mp3', 'audio/mpeg', 'audio/wav', 'audio/x-wave', 'audio/x-wav', 'audio/ogg', 'audio/flac','audio/x-flac', 'audio/x-aiff', 'audio/aiff', ]
+      ['video/mp4']
     end
 
     def create_hls_derivatives(filename)
